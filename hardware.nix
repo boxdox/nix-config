@@ -12,18 +12,28 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/78c76d4b-6c8c-4077-88bc-c6663bb184ad";
+  
+  fileSystems = {
+    "/" = { 
+      device = "/dev/disk/by-uuid/78c76d4b-6c8c-4077-88bc-c6663bb184ad";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "subvol=@" "noatime" "compress=zstd:1" "ssd" "discard=async" "space_cache=v2" "commit=90" ];
     };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/AEC2-6A03";
+    "/boot" = { 
+      device = "/dev/disk/by-uuid/AEC2-6A03";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
+    "/media/data" = {
+      device = "/dev/disk/by-uuid/0EE2D775E2D7600F";
+      fsType = "ntfs";
+      options = [ "defaults" "autodefrag" "noatime" "compress=zstd:13" ];
+    };
+   # "/media/ssd" = {
+   #   device = "/dev/disk/by-uuid/e13f03e7-bb0d-443f-acfe-cce36179a71a";
+   #   options = [ "rw" "noatime" "compress=zstd:1" "ssd" "discard=async" "space_cache=v2" "commit=90" ];
+   # };
+  };
 
   swapDevices = [ ];
 

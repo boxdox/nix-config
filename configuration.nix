@@ -7,6 +7,7 @@ in {
     ./hardware.nix
     ./nixos-modules/nvidia.nix
     
+    ./nixos-modules/devtools.nix
     ./nixos-modules/steam.nix
   ];
 
@@ -83,7 +84,8 @@ in {
 
   security.rtkit.enable = true;
 
-  #users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";

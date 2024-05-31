@@ -6,6 +6,7 @@
     ./home-modules/fonts.nix
     ./home-modules/zsh-shell.nix
     ./home-modules/git.nix
+    ./home-modules/wezterm.nix
     ./home-modules/firefox.nix
   ];
 
@@ -19,10 +20,9 @@
 
       # global cli tools
       rustup
-      corepack 
+      volta
 
       # terminal-fu
-      wezterm
       bat
       eza
       fd
@@ -40,6 +40,17 @@
 
       # social
       webcord
+
+      # work
+      blender
+      davinci-resolve
+      handbrake
+      obsidian
+
+      # utilities
+      yt-dlp
+      ffmpeg
+      p7zip
   ];
 
   home.stateVersion = "23.11";
