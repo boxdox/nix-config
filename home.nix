@@ -7,6 +7,7 @@
     ./home-modules/zsh-shell.nix
     ./home-modules/git.nix
     ./home-modules/wezterm.nix
+    ./home-modules/obs.nix
     ./home-modules/firefox.nix
   ];
 
@@ -17,10 +18,12 @@
       # dev tools
       neovim
       vscode
+      devbox
+      direnv
 
       # global cli tools
       rustup
-      volta
+      #volta # volta doesn't work with nix-store, need to re-visit in future
 
       # terminal-fu
       bat
@@ -45,7 +48,6 @@
       blender
       davinci-resolve
       handbrake
-      obsidian
 
       # utilities
       yt-dlp

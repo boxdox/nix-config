@@ -6,8 +6,6 @@ in {
   imports = [
     ./hardware.nix
     ./nixos-modules/nvidia.nix
-    
-    ./nixos-modules/devtools.nix
     ./nixos-modules/steam.nix
   ];
 
@@ -90,18 +88,23 @@ in {
     isNormalUser = true;
     description = "${username}";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      # multimedia
-      vlc
-    ];
   };
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnome-extension-manager
+    asusctl
 
+    ddcutil
     brightnessctl
+    pavucontrol
+    helvum
+    piper
   ];
+
+  services = {
+    ratbagd.enable = true; # required by piper to config peripherals
+  };
 
   # nix config
   nixpkgs.config.allowUnfree = true;

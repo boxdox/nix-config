@@ -12,7 +12,7 @@
     };
 
     iconTheme = {
-      name = "La-capitaine-icon-theme";
+      name = "la-capitaine-icon-theme";
       package = pkgs.la-capitaine-icon-theme;
     };
 
@@ -37,15 +37,15 @@
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
     bluetooth-quick-connect
-    rounded-window-corners
     gtile
+    control-monitor-brightness-and-volume-with-ddcutil
   ];
   
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       cursor-theme = "Bibata-Modern-Ice";
-      icon-theme = "La-capitaine-icon-theme";
+      icon-theme = "la-capitaine-icon-theme";
       gtk-theme = "Catppuccin-Mocha-Compact-Mauve-Dark";
     };
     "org/gnome/shell" = {
@@ -53,7 +53,13 @@
 
       # `gnome-extensions list` for a list
       enabled-extensions = [
+	"launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+
         "user-theme@gnome-shell-extensions.gcampax.github.com"
+      	"blur-my-shell@aunetx"
+	"bluetooth-quick-connect@bjarosze.gmail.com"
+	"gTile@vibou"
+	"monitor-brightness-volume@ailin.nemui"
       ];
     };
         
