@@ -14,7 +14,7 @@
     initExtra = ''
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
-      eval "$(devbox global shellenv --init-hook)"
+      eval "$(direnv hook zsh)"
     '';
     shellAliases = {
       c = "clear";

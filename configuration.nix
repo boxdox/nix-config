@@ -5,8 +5,11 @@ let
 in {
   imports = [
     ./hardware.nix
+    ./nixos-modules/sound.nix
     ./nixos-modules/nvidia.nix
+    ./nixos-modules/gnome.nix
     ./nixos-modules/steam.nix
+    
   ];
 
   # bootloader
@@ -40,48 +43,6 @@ in {
     LC_TIME = "${locale}";
   };
 
-  # gnome
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
-    layout = "us";
-  };
-  
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    gnome-characters
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    yelp # Help view
-    gnome-contacts
-    gnome-initial-setup
-  ]);
-
-  programs.dconf.enable = true;
-
-  # sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  security.rtkit.enable = true;
-
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   users.users.${username} = {
@@ -91,10 +52,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome-extension-manager
     asusctl
-
     ddcutil
     brightnessctl
     pavucontrol
