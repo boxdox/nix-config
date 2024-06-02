@@ -38,7 +38,8 @@
     blur-my-shell
     bluetooth-quick-connect
     gtile
-    control-monitor-brightness-and-volume-with-ddcutil
+    # this crashes gnome, need to check
+    #control-monitor-brightness-and-volume-with-ddcutil
   ];
   
   dconf.settings = {
@@ -59,7 +60,8 @@
       	"blur-my-shell@aunetx"
 	"bluetooth-quick-connect@bjarosze.gmail.com"
 	"gTile@vibou"
-	"monitor-brightness-volume@ailin.nemui"
+        # this crashes gnome, need to check
+	#"monitor-brightness-volume@ailin.nemui"
       ];
     };
         
