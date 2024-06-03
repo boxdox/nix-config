@@ -71,7 +71,8 @@
         "media.autoplay.default" = 1;
         "media.autoplay.enabled" = false;
         "media.eme.enabled" = false;
-        "media.gmp-widevinecdm.enabled" = false;
+        "media.gmp-widevinecdm.enabled" = true;
+        "media.gmp-widevinecdm.visible" = true;
         "media.navigator.enabled" = false;
         "media.video_stats.enabled" = false;
         "network.IDN_show_punycode" = true;

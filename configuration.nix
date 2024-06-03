@@ -7,9 +7,9 @@ in {
     ./hardware.nix
     ./nixos-modules/sound.nix
     ./nixos-modules/nvidia.nix
+    ./nixos-modules/virtualization.nix
     ./nixos-modules/gnome.nix
     ./nixos-modules/steam.nix
-    
   ];
 
   # bootloader
