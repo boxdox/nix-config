@@ -12,14 +12,14 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "i2c-dev" "vfio" ];
   boot.extraModulePackages = [ ];
-  
+
   fileSystems = {
-    "/" = { 
+    "/" = {
       device = "/dev/disk/by-uuid/78c76d4b-6c8c-4077-88bc-c6663bb184ad";
       fsType = "btrfs";
       options = [ "subvol=@" "noatime" "compress=zstd:1" "ssd" "discard=async" "space_cache=v2" "commit=90" ];
     };
-    "/boot" = { 
+    "/boot" = {
       device = "/dev/disk/by-uuid/AEC2-6A03";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];

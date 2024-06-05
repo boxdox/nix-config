@@ -63,6 +63,12 @@ in {
   services = {
     ratbagd.enable = true; # required by piper to config peripherals
   };
+  
+  # insecure packages needed by tools
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+    "electron-25.9.0"
+  ];
 
   # nix config
   nixpkgs.config.allowUnfree = true;

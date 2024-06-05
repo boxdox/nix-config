@@ -5,7 +5,7 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
 
-    layout = "us";
+    xkb.layout = "us";
   };
   
   environment.gnome.excludePackages = (with pkgs; [
@@ -13,8 +13,8 @@
     gnome-tour
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
+    gnome-software
     gnome-music
-    gedit # text editor
     epiphany # web browser
     geary # email reader
     gnome-characters
@@ -25,6 +25,9 @@
     yelp # Help view
     gnome-contacts
     gnome-initial-setup
+    simple-scan
+    totem
+    geary
   ]);
 
   programs.dconf.enable = true;

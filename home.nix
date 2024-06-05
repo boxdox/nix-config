@@ -18,12 +18,30 @@
       # dev tools
       neovim
       vscode
+      sublime4
       devbox
       direnv
+      lazygit
+      bun
+      mold
 
       # global cli tools
       rustup
-      #volta # volta doesn't work with nix-store, need to re-visit in future
+      fnm
+
+      # work
+      blender
+      davinci-resolve
+      darktable
+      ardour
+      lmms
+      #aseprite # unable to build
+      godot_4
+      handbrake
+      #librum
+      calibre
+      anki
+      obsidian
 
       # terminal-fu
       bat
@@ -34,25 +52,28 @@
       ripgrep
       tokei
       bottom
-      zoxide
       tmux
+      yazi
+      zoxide
 
       # entertainment
       vlc
+      freetube
       jellyfin-media-player
+      spotify
+      spicetify-cli
 
       # social
       webcord
 
-      # work
-      blender
-      davinci-resolve
-      handbrake
-
       # utilities
       yt-dlp
+      aria2
       ffmpeg
       p7zip
+      localsend
+      syncthing
+      #tabby
   ];
 
   home.stateVersion = "23.11";
