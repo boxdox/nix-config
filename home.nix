@@ -5,6 +5,7 @@
     ./home-modules/gnome.nix
     ./home-modules/fonts.nix
     ./home-modules/zsh-shell.nix
+    ./home-modules/terminal-fu.nix
     ./home-modules/git.nix
     ./home-modules/wezterm.nix
     ./home-modules/obs.nix
@@ -27,7 +28,6 @@
 
       # global cli tools
       rustup
-      fnm
 
       # work
       blender

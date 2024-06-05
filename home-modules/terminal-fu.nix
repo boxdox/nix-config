@@ -12,7 +12,7 @@
     config = {
       theme = "zenburn";
       style = "numbers,changes";
-      tabs = 2;
+      tabs = "2";
       pager = "less -FR";
     };
   };
@@ -31,10 +31,10 @@
     enableZshIntegration = true;
     icons = true;
     extraOptions = [
-      "--long",
-      "--group-directories-first",
-      "--color=always",
-      "--binary",
+      "--long"
+      "--group-directories-first"
+      "--color=always"
+      "--binary"
     ];
   };
 
@@ -42,7 +42,7 @@
   programs.fd = {
     enable = true;
     extraOptions = [
-      "--list-details",
+      "--list-details"
       "--follow"
     ];
   };
@@ -54,7 +54,7 @@
   };
 
   # jq - json previewer
-  progams.jq.enable = true;
+  programs.jq.enable = true;
 
   # ripgrep - grep alternative
   programs.ripgrep = {
