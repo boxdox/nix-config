@@ -13,20 +13,17 @@
     };
     initExtra = ''
       eval "$(starship init zsh)"
-      eval "$(zoxide init zsh)"
       eval "$(direnv hook zsh)"
     '';
     shellAliases = {
       c = "clear";
       v = "nvim";
-      cat = "bat --style=numbers";
+      cat = "bat";
       ls = "exa -lb --icons";
       la = "exa -lab --icons";
       ll = "exa -lah --icons";
       pn = "pnpm";
       grep = "rg";
-      cd = "z";
-      cdi = "zi";
     };
   };
 

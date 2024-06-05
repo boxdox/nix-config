@@ -43,19 +43,6 @@
       anki
       obsidian
 
-      # terminal-fu
-      bat
-      eza
-      fd
-      fzf
-      procs
-      ripgrep
-      tokei
-      bottom
-      tmux
-      yazi
-      zoxide
-
       # entertainment
       vlc
       freetube
@@ -73,7 +60,6 @@
       p7zip
       localsend
       syncthing
-      #tabby
   ];
 
   home.stateVersion = "23.11";
