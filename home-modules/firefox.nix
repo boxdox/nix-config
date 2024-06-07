@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: 
+{ config, pkgs, inputs, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -68,6 +68,7 @@
         "extensions.shield-recipe-client.api_url" = "";
         "extensions.shield-recipe-client.enabled" = false;
         "extensions.webservice.discoverURL" = "";
+        "layout.css.prefer-color-scheme.content-override" = 0; # 0=dark, 1=light, 2=auto
         "media.autoplay.default" = 1;
         "media.autoplay.enabled" = false;
         "media.eme.enabled" = false;
@@ -89,6 +90,7 @@
         "network.trr.mode" = 5;
         "privacy.donottrackheader.enabled" = true;
         "privacy.donottrackheader.value" = 1;
+        "privacy.fingerprintingProtection" = true;
         "privacy.firstparty.isolate" = true;
         "privacy.query_stripping" = true;
         "privacy.trackingprotection.cryptomining.enabled" = true;
@@ -99,6 +101,8 @@
         "security.ssl.disable_session_identifiers" = true;
         "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
         "signon.autofillForms" = false;
+        "signon.formlessCapture.enabled" = false;
+        "signon.rememberSignons" = false;
         "toolkit.telemetry.archive.enabled" = false;
         "toolkit.telemetry.bhrPing.enabled" = false;
         "toolkit.telemetry.cachedClientID" = "";
@@ -116,72 +120,13 @@
         "toolkit.telemetry.updatePing.enabled" = false;
         "webgl.renderer-string-override" = " ";
         "webgl.vendor-string-override" = " ";
-      #
-#        "beacon.enabled" = false;
-#	"browser.contentblocking.category" = "strict";
-#	"browser.display.os-zoom-behavior" = 1;
-#	"browser.discovery.enabled" = false;
-#	"browser.newtab.preload" = false;
-#        "browser.newtabpage.activity-stream.showSponsored" = false;
-#        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-#        "browser.newtabpage.activity-stream.feeds.topsites" = true;
-#        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-#        "browser.newtabpage.activity-stream.feeds.snippets" = false;
-#        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-#        "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
-#        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-#        "browser.newtabpage.activity-stream.default.sites" = "";
-#	"browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter";
-#        "browser.search.suggest.enabled" = false;
-#        "browser.send_pings" = false;
-#        "browser.startup.page" = 3;
-#        "browser.tabs.closeWindowWithLastTab" = false;
-#        "browser.uidensity" = 1; # Dense.
-#	"browser.urlbar.speculativeConnect.enabled" = false;
-#	"dom.security.https_only_mode" = true;
-#        "experiments.activeExperiment" = false;
-#        "experiments.enabled" = false;
-#        "experiments.supported" = false;
-#        "extensions.pocket.enabled" = false;
-#        "extensions.getAddons.showPane" = false;
-#        "extensions.htmlaboutaddons.recommendations.enabled" = false;
-#	"geo.enabled" = false;
-#	"gfx.webrender.all" = true;
-#	"layout.css.prefers-color-scheme.content-override" = 0; # 0: Dark, 1: Light, 2: Auto
-#	"media.peerconnection.ice.default_address_only" = true;
-#	"network.IDN_show_punycode" = true;
-#        "network.allow-experiments" = false;
-#        "network.dns.disablePrefetch" = true;
-#        "network.http.referer.XOriginPolicy" = 2;
-#        "network.http.referer.XOriginTrimmingPolicy" = 2;
-#        "network.http.referer.trimmingPolicy" = 1;
-#        "network.prefetch-next" = false;
-#	"privacy.donottrackheader.enabled" = true;
-#        "privacy.donottrackheader.value" = 1;
-#	"privacy.fingerprintingProtection" = true;
-#        "privacy.firstparty.isolate" = true;
-#	"privacy.query_stripping.enabled" = true;
-#        "privacy.query_stripping.enabled.pbmode" = true;
-#        "privacy.resistFingerprinting" = true;
-#        "privacy.resistFingerprinting.pbmode" = true;
-#	"privacy.trackingprotection.enabled" = true;
-#        "privacy.trackingprotection.pbmode.enabled" = true;
-#        "privacy.trackingprotection.emailtracking.enabled" = true;
-#        "privacy.trackingprotection.socialtracking.enabled" = true;
-#        "privacy.trackingprotection.cryptomining.enabled" = true;
-#        "privacy.trackingprotection.fingerprinting.enabled" = true;
-#        "signon.rememberSignons" = false;
-#	"signon.autofillForms" = false;
-#	"signon.formlessCapture.enabled" = false;
-#        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-#	"toolkit.telemetry.enabled" = false;
       };
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         bitwarden
-	ublock-origin
-	sponsorblock
-	darkreader
-	privacy-badger
+        ublock-origin
+        sponsorblock
+        darkreader
+        privacy-badger
       ];
     };
   };

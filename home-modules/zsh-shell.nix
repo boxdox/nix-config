@@ -34,7 +34,7 @@
       add_newline = true;
       directory = {
         truncation_length = 2;
-	fish_style_pwd_dir_length = 1;
+	    fish_style_pwd_dir_length = 1;
       };
     };
   };

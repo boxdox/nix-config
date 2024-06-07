@@ -29,8 +29,8 @@
         -- general
         { key = "phys:Space", mods = "LEADER",      action = act.ActivateCommandPalette },
         { key = "x",          mods = "CTRL|SHIFT",  action = act.ActivateCopyMode },
-	{ key = "v", 		mods = "CTRL|SHIFT",  action = act({ PasteFrom = "Clipboard" }) },
-	{ key = "c", 		mods = "CTRL|SHIFT",  action = act({ CopyTo = "ClipboardAndPrimarySelection" }) },
+        { key = "v", 		mods = "CTRL|SHIFT",  action = act({ PasteFrom = "Clipboard" }) },
+        { key = "c", 		mods = "CTRL|SHIFT",  action = act({ CopyTo = "ClipboardAndPrimarySelection" }) },
 
         -- pane management
         { key = "s",          mods = "LEADER",      action = act.SplitVertical { domain = "CurrentPaneDomain" } },
@@ -43,8 +43,8 @@
 
         -- tab management
         { key = "t",          mods = "LEADER",      action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "Tab", 	      mods = "CTRL",	    action = act({ ActivateTabRelative = 1 }) },
-	{ key = "Tab",        mods = "CTRL|SHIFT",  action = act({ ActivateTabRelative = -1 }) },
+        { key = "Tab", 	      mods = "CTRL",	    action = act({ ActivateTabRelative = 1 }) },
+        { key = "Tab",        mods = "CTRL|SHIFT",  action = act({ ActivateTabRelative = -1 }) },
         { key = "n",          mods = "LEADER",      action = act.ShowTabNavigator },
       }
 

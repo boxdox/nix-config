@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, catppuccin, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     username = "boxdox";
     hostname = "tuf";
@@ -30,22 +30,22 @@
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit hostname username inputs; };
-      modules = [ 
-        ./configuration.nix 
-	
-	# hardware config for laptop
-        nixos-hardware.nixosModules.asus-fx504gd
-	nixos-hardware.nixosModules.common-pc-laptop-ssd
+      modules = [
+        ./configuration.nix
 
-	# home-manager as a module
-	home-manager.nixosModules.home-manager {
+	      # hardware config for laptop
+        inputs.nixos-hardware.nixosModules.asus-fx504gd
+	      inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+
+	      # home-manager as a module
+	      home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
-	  home-manager.extraSpecialArgs = { inherit inputs username; };
-	  home-manager.users."${username}".imports = [
+          home-manager.extraSpecialArgs = { inherit inputs username; };
+          home-manager.users."${username}".imports = [
             ./home.nix
-	    catppuccin.homeManagerModules.catppuccin
-	  ];
-	}
+            inputs.catppuccin.homeManagerModules.catppuccin
+	        ];
+	      }
       ];
     };
   };
