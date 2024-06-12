@@ -38,7 +38,7 @@
       #aseprite # unable to build
       godot_4
       handbrake
-      #librum
+      librum
       calibre
       anki
       obsidian

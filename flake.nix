@@ -44,8 +44,8 @@
           home-manager.users."${username}".imports = [
             ./home.nix
             inputs.catppuccin.homeManagerModules.catppuccin
-	        ];
-	      }
+          ];
+        }
       ];
     };
   };

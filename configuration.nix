@@ -64,22 +64,25 @@ in {
   services = {
     ratbagd.enable = true; # required by piper to config peripherals
   };
-  
-  # insecure packages needed by tools
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-    "electron-25.9.0"
-  ];
 
   # nix config
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+      # insecure packages needed by tools
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+        "electron-25.9.0"
+  ];
+    };
+  };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-  
+
   system.stateVersion = "23.11";
 }
-
