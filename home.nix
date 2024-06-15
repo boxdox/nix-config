@@ -30,18 +30,20 @@
       rustup
 
       # work
+      godot_4
+      librum
+      calibre
+      anki
+      obsidian
+
+      # design and studio
       blender
       davinci-resolve
       darktable
       ardour
       lmms
       #aseprite # unable to build
-      godot_4
       handbrake
-      librum
-      calibre
-      anki
-      obsidian
 
       # entertainment
       vlc
