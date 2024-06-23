@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   gtk = {
     enable = true;
@@ -47,7 +47,7 @@
       color-scheme = "prefer-dark";
       cursor-theme = "Bibata-Modern-Ice";
       icon-theme = "la-capitaine-icon-theme";
-      gtk-theme = "Catppuccin-Mocha-Compact-Mauve-Dark";
+      gtk-theme = lib.mkForce "Catppuccin-Mocha-Compact-Mauve-Dark"; # need to force this, as gtk theme support by catppuccin ended :(
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;

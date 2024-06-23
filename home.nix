@@ -24,7 +24,9 @@
       direnv
       lazygit
       bun
+      stdenv.cc.cc.lib
       mold
+      gcc
 
       # global cli tools
       rustup
@@ -35,6 +37,7 @@
       calibre
       anki
       obsidian
+      thunderbird
 
       # design and studio
       blender

@@ -25,6 +25,9 @@
       pn = "pnpm";
       grep = "rg";
     };
+    sessionVariables = {
+      LD_LIBRARY_PATH = "$HOME/.nix-profile/lib:$LD_LIBRARY_PATH";
+    };
   };
 
   programs.starship = {
