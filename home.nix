@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, unstablePkgs, system, username, ... }:
 
 {
   imports = [
@@ -6,8 +6,9 @@
     ./home-modules/fonts.nix
     ./home-modules/zsh-shell.nix
     ./home-modules/terminal-fu.nix
+    ./home-modules/vscode.nix
     ./home-modules/git.nix
-    ./home-modules/wezterm.nix
+    ./home-modules/kitty.nix
     ./home-modules/obs.nix
     ./home-modules/firefox.nix
   ];
@@ -15,10 +16,10 @@
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
-  home.packages = with pkgs; [
+  home.packages = (
+    with pkgs; [
       # dev tools
       neovim
-      vscode
       sublime4
       devbox
       direnv
@@ -45,7 +46,7 @@
       darktable
       ardour
       lmms
-      #aseprite # unable to build
+      aseprite
       handbrake
 
       # entertainment
@@ -65,7 +66,12 @@
       p7zip
       localsend
       syncthing
-  ];
+    ]
+  ) ++ (
+    with unstablePkgs; [
+      pnpm
+    ]
+  );
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;

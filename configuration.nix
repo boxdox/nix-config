@@ -21,6 +21,13 @@ in {
     };
 
     supportedFilesystems = [ "ntfs" ];
+
+    # kernel
+    kernel = {
+      sysctl = {
+        "kernel.sysrq" = 502;
+      };
+    };
   };
 
   # networking
@@ -74,7 +81,7 @@ in {
       permittedInsecurePackages = [
         "openssl-1.1.1w"
         "electron-25.9.0"
-  ];
+      ];
     };
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

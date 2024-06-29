@@ -41,13 +41,13 @@
     # this crashes gnome, need to check
     #control-monitor-brightness-and-volume-with-ddcutil
   ];
-  
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       cursor-theme = "Bibata-Modern-Ice";
       icon-theme = "la-capitaine-icon-theme";
-      gtk-theme = lib.mkForce "Catppuccin-Mocha-Compact-Mauve-Dark"; # need to force this, as gtk theme support by catppuccin ended :(
+      gtk-theme = lib.mkForce "catppuccin-mocha-mauve-compact+rimless"; # need to force this, as gtk theme support by catppuccin ended :(
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
@@ -64,12 +64,12 @@
 	#"monitor-brightness-volume@ailin.nemui"
       ];
     };
-        
+
     # configure blur-my-shell
     "org/gnome/shell/extensions/blur-my-shell" = {
       brightness = 0.85;
       dash-opacity = 0.25;
-      sigma = 15; 
+      sigma = 15;
       static-blur = false;
     };
     "org/gnome/shell/extensions/blur-my-shell/panel".blur = true;

@@ -26,6 +26,13 @@
     hostname = "tuf";
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    unstablePkgs = import inputs.nixpkgs-unstable {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = true;
+      };
+    };
   in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -40,7 +47,7 @@
 	      # home-manager as a module
 	      home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = { inherit inputs username; };
+          home-manager.extraSpecialArgs = { inherit inputs unstablePkgs username; };
           home-manager.users."${username}".imports = [
             ./home.nix
             inputs.catppuccin.homeManagerModules.catppuccin
